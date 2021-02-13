@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CuziStim</title>
+    <link href="css/header.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="css/redactor.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/redactor.js"></script>
+    <script src="https://cdn.tiny.cloud/1/ekq46sr7mn7jnrhi84k18yjxdpxtjdfesnowejeug9yq4eex/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  </head>
+  <body>
+    <main>
+    <%-include('shells/header')%>
+    <% if(redirect) { %>
+    <div class="card">
+      <% if(succes) { %><h3>&nbsp Articol postat!</h3><% } %>
+    </div>
+    <% } %>
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card" id="sheet">
+          <h3>Articol nou</h3>
+          <button id="i-btn"onclick="reveal('imgup')">Incarca Imagine</button>
+          <div id="imgup">
+            <iframe width="0" height="0" style="display: none" border="0" name="dummyframe" id="dummyframe"></iframe>
+            <form action="/img-up "id="imgupb" method="post" enctype="multipart/form-data" target="dummyframe" onchange="reveal('iginsert')">
+              <input type="file" accept="image/*" name="image" />
+              <input value="submit" type="submit">
+            </form>
+          </div>
+          <form action="/redactor" method="post" id="artform" onsubmit="return getContent()">
+            <b class="lb">&nbsp Titlu</b>
+            <input type="text" name="title" placeholder="Un titlu captivant" id="atitle" class="ifield">
+            <b class="lb">&nbsp Descriere</b>
+            <input type="text" name="desc" placeholder="Descriere" id="adesc" class="ifield">
+            <b class="lb">&nbsp Rubrica</b>
+            <select name="topic" id="atopic" form="artform" class="ifield">
+              <option value="proiecte">Proiecte si Activitati Extrascolare</option>
+              <option value="rezultate">Rezultate Academice</option>
+              <option value="interviu">Interviu</option>
+              <option value="diverse">Diverse</option>
+            </select>
+            <button type="button"id="iginsert" style="display:none"onclick="document.getElementById('redsheet').focus(); pasteHtmlAtCaret();">Insereaza imaginea</button>
+            <textarea id="btextarea" style="display:none" name="acontent"></textarea>
+          </form>
+          <b class="lb">&nbsp Continut</b>
+          <div class="ifield" id="redsheet" contentEditable="true">
+          </div>
+          <button class="s-btn"type="submit" form="artform">Posteaza</button>
+        </div>
+      </div>
+      <div class="rightcolumn">
+        <div class="sidecard card">
+          <h3>Articole Populare</h3>
+          <div class="fakeimg">Image</div><br>
+          <div class="fakeimg">Image</div><br>
+          <div class="fakeimg">Image</div>
+        </div>
+        <div class="card sidecard">
+          <h2>Despre Noi</h2>
+          <div class="fakeimg" style="height:100px;">Image</div>
+          <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%-include('shells/footer')%>
+  </body>
+</html>

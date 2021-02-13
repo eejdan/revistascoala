@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CuziStim</title>
+    <link href="<% if(sub) { %>.<%}%>./css/header.css" rel="stylesheet" type="text/css" />
+    <link href="<% if(sub){ %>.<% } %>./css/index.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="<% if(sub) { %>.<%}%>./css/footer.css" rel="stylesheet" type="text/css"/>
+    <link href="<% if(sub) { %>.<%}%>./css/redactor.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <script>
+    function ajaxSupplyDocument(url, callback) {
+      var ajax = new XMLHttpRequest();
+      ajax.onreadystatechange = function () {
+        if(this.readyState==4 && this.status==200)
+          callback(this);
+      }
+      ajax.onerror = function() {
+        console.log("AJAX failed for "+url)
+      }
+      ajax.open("GET", url, true);
+      ajax.send();
+    }
+  </script>
+  <body>
+    
+    <main>
+    <%-include('shells/header')%>
+    <div class="row">
+      <div class="leftcolumn">
+        <% if (a) {art.forEach((task, idx) => { %>
+          <div class="card art">
+            <a href=<%- "\"/articol/"+task.link+"\""%>><h3><%= task.title %></h3></a>
+            <div class="fb-share-button" data-href="/articol/<%- task.link%>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Distribuie</a></div><br />
+            <h7><%= task.desc%>, <%=task.date%></h7>
+            <script>
+            
+            </script>
+          </div>
+        <% })} %>
+      </div>
+      <div class="rightcolumn">
+        <div class="sidecard card">
+          <h3>Articole Populare</h3>
+          No articles
+        </div>
+        <div class="card sidecard">
+          <h2>Despre Noi</h2>
+          <div class="fakeimg" style="height:100px;">Image</div>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%-include('shells/footer')%>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ro_RO/sdk.js#xfbml=1&version=v9.0&appId=2484468811608719&autoLogAppEvents=1" nonce="JxUqJkUQ"></script>
+  </body> 
+</html>

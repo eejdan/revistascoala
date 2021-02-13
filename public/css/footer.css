@@ -1,0 +1,26 @@
+.footer {
+  margin: 5px;
+  padding: .5em .6em;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: -5px 5px 3px rgba(0,0,0,0.5);
+  background: white;
+  margin-top: 20px;
+  display: grid;
+  grid-auto-columns: 30% auto 30%;
+  grid-column-gap: 2em;
+}
+
+.footer .column {
+  float: left;
+  width: 33.33%;
+  font-size: 16px;
+  cursor: pointer;
+  color: black;
+}
+
+.footer .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

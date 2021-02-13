@@ -1,0 +1,93 @@
+textarea {
+  width: 80%;
+}
+#ps {
+  margin-top:10px;
+}
+.redimg {
+  display: block;
+}
+#imgup {
+  display:none;
+}
+#imgup:after {
+  display:block;
+}
+#sheet {
+  padding: 30px;
+}
+#redsheet {
+  min-height: 200px;
+  display: block;
+}
+form {
+  display: block;
+  margin-top: 10px;
+}
+#i-btn {
+  background-color: var(--blue-400);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 12px;
+  padding: .5em .75em;
+  transition: background-color 1s;
+}
+#i-btn:hover {
+  background-color: var(--blue-600);
+}
+.lb {
+  font-size: 14px;
+  letter-spacing: .01mm;
+}
+.lba {
+  font-size: 12px;
+  color: --fc-medium;
+  padding:0;
+  padding-top: 3px;
+  vertical-align: baseline;
+}
+.ifield { 
+  padding: .6em .7em;
+  line-height: 1.15384615;
+  border-radius: 3px;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid var(--black-200);
+  margin: 5px;
+  margin-left: 0px;
+}
+.s-btn {
+  margin-top: .6em;
+  color: white;
+  background-color: #ef233c;
+  border-radius:3px;
+  font-size: 16px;
+  border: none;
+  padding: .8em 2em;
+  text-align: center;
+  outline: none;
+  transition: background-color 1s;
+}
+.s-btn:hover {
+  background-color: #af0420;
+}
+.ifield:focus{
+  box-shadow: var(--focus-ring) 0px 0px 0px 4px;
+  border: 1px solid var(--orange-300);
+  outline: none;
+}
+#atitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+#atopic {
+  background: white;
+  font-size: 14px;
+  padding: .3em .35em;
+}
+#adesc {
+  padding: .3em .35em;
+  font-size: 14px;
+}

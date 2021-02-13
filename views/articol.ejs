@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cuzi</title>
+    <link href="../css/header.css" rel="stylesheet" type="text/css" />
+    <link href="../css/index.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <main>
+    <%-include('shells/header')%>
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <a href=<%- "\"/articol/"+art.link+"\""%>><h2><%= art.title %></h2></a>
+          <h5><%= art.desc%>, <%=art.date%></h5>
+          <div style="padding: 5px"><%- art.content %></div>
+        </div>
+      </div>
+      <div class="rightcolumn">
+        <div class="sidecard card">
+          <h3>Articole Populare</h3>
+          <div class="fakeimg">Image</div><br>
+          <div class="fakeimg">Image</div><br>
+          <div class="fakeimg">Image</div>
+        </div>
+        <div class="card sidecard">
+          <h2>Despre Noi</h2>
+          <div class="fakeimg" style="height:100px;">Image</div>
+          <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%-include('shells/footer')%>
+  </body>
+</html>

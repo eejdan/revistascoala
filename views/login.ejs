@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CuziStim</title>
+    <link href="css/header.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet" type="text/css"/>
+    <link href="css/redactor.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <main>
+    <%-include('shells/header')%>
+    <div class="row">
+      <% if (! typeof fail == 'undefined') { %>
+      <div class="card" style="text-align:center;display:block;">
+        <h3 style="color: --red-600">Login failed</h3>
+      </div>
+      <% } %>
+      <div class="card" style="text-align:center;display:block;">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+          <input type="text" name="user" class="ifield" style="width: 20%;">
+          <input type="password" name="password" class="ifield" style="width: 20%;">
+          <input type="submit" value="Login" class="s-btn">
+        </form>
+      </div>
+    </div>
+  </main>
+  <%-include('shells/footer')%>
+  </body>
+</html>
